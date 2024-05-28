@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA</title>
+</head>
+<body>
+    <header>
+        <img src="images/baner.png" alt="Opis zdjęcia"> 
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Historia NBA</a></li>
+            <li><a href="index2.html">Drużyny</a></li>
+            <li><a href="index4.html">Bilety</a></li>
+            <li><a href="index5.html">Kontakt</a></li>
+        </ul>
+    </nav>
+    <section class="tlo">
+        <canvas id="myCanvas"></canvas>
+    <div class="container">
+        <h2>Dane Kontaktowe</h2>
+        <div class="date" id="currentDate"></div>
+        <div class="info">
+            <p><span>Imię:</span> Dawid</p>
+            <p><span>Nazwisko:</span> Tarnawa</p>
+            <p><span>Telefon:</span> +48 123 456 789</p>
+            <p><span>Email:</span> dt@.com</p>
+            <p><span>Adres:</span> Warszawa ul. Koszykarska </p>
+        </div>
+    </div>
+</section>
+    <script>
+        function updateDate() {
+            const dateElement = document.getElementById('currentDate');
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('pl-PL', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            dateElement.textContent = `Dzisiaj jest ${formattedDate}`;
+        }
+        
+        updateDate();
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+let x = canvas.width / 10;
+let y = canvas.height / 10;
+let dx = 1;
+let dy = -2;
+const ballRadius = 10;
+
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    ctx.fillStyle = 'orange';
+    ctx.fill();
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+    }
+    if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+        dy = -dy;
+    }
+    x += dx;
+    y += dy;
+}
+
+setInterval(draw, 10);
+    </script>
+</body>
+</html>

@@ -29,7 +29,7 @@
                     <h3 class="text-xl font-medium">Dodaj swój wpis</h3>
                     <form action="index.php" class="flex flex-col gap-4" method="POST">
                         <div class="flex flex-col gap-2">
-                            <label for="title" class="text-sm font-medium text-gray-900">Tytuł</label>
+                            <label for="title" class="text-sm font-medium text-gray-900">Tekst</label>
                             <input type="text" placeholder="Tytuł..." name="title" id="title" minlength="5" maxlength="50" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
                         <div class="flex flex-col gap-2">

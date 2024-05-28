@@ -32,8 +32,8 @@ nav ul li a {
     text-decoration: none;
 }
 header {
-    display: block; /* Zapobieganie dodaniu przestrzeni poniżej obrazka */
-    object-fit: cover; /* Dostosowanie obrazka do rozmiaru kontenera */
+    display: block; 
+    object-fit: cover; 
     background-color: #ff914d;
 }
 nav ul li a:hover {
